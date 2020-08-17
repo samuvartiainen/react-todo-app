@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-
-
-function Todo({todo, index, completeTodo, removeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
     <div
       className="todo"
-      style={{textDecoration: todo.completed ? "line-through": ""}}
+      style={{ textDecoration: todo.completed ? "line-through" : "" }}
     >
       {todo.text}
 
@@ -17,28 +15,27 @@ function Todo({todo, index, completeTodo, removeTodo }) {
         <button onClick={() => removeTodo(index)}>Poista</button>
       </div>
     </div>
-
   );
 }
 
-function NewItem({ newTodo }){
+function NewItem({ newTodo }) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(!value) return;
+    if (!value) return;
     newTodo(value);
     setValue("");
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
-      type="text"
-      className="input"
-      placeholder="Lisää uusi tehtävä"
-      value={value}
-      onChange={e => setValue(e.target.value)}
+        type="text"
+        className="input"
+        placeholder="Lisää uusi tehtävä"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
       />
       <button onClick={() => handleSubmit}>Lisää</button>
     </form>
@@ -48,49 +45,49 @@ function App() {
   const [todos, setTodos] = useState([
     {
       text: "Tehtävä 1",
-      completed: false
+      completed: false,
     },
     {
       text: "Tehtävä 2",
-      completed: false
+      completed: false,
     },
     {
       text: "Tehtävä 3",
-      completed: false
-    }
+      completed: false,
+    },
   ]);
 
-  const newTodo = text => {
+  const newTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
     setTodos(newTodos);
-  }
+  };
 
-  const removeTodo = index => {
+  const removeTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
-  }
-return (
-  <div className="app">
-    <div className="todo-list">
-      {todos.map((todo, index) => (
-        <Todo
-          key={index}
-          index={index}
-          todo={todo}
-          completeTodo={completeTodo}
-          removeTodo={removeTodo}
-        />
-      ))}
-      <NewItem newTodo={newTodo} />
+  };
+  return (
+    <div className="app">
+      <div className="todo-list">
+        {todos.map((todo, index) => (
+          <Todo
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
+        ))}
+        <NewItem newTodo={newTodo} />
+      </div>
     </div>
-  </div>
-);
+  );
 }
 export default App;
