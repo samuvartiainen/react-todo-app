@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Button } from '@material-ui/core';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -11,8 +12,8 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       {todo.text}
 
       <div>
-        <button onClick={() => completeTodo(index)}>Tehty</button>
-        <button onClick={() => removeTodo(index)}>Poista</button>
+        <Button onClick={() => completeTodo(index)}>Tehty</Button>
+        <Button onClick={() => removeTodo(index)}>Poista</Button>
       </div>
     </div>
   );
@@ -37,7 +38,7 @@ function NewItem({ newTodo }) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <button onClick={() => handleSubmit}>Lisää</button>
+      <Button onClick={() => handleSubmit}>Lisää</Button>
     </form>
   );
 }
