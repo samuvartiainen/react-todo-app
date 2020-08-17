@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -33,16 +34,18 @@ function NewItem({ newTodo }) {
   };
 
   return (
+    <div className="form">
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        placeholder="Lisää uusi tehtävä"
-        value={value}
-        onChange={(e) => setValue(e.currentTarget.value)}
-      />
+        <TextField
+          type="text"
+          className="input"
+          placeholder="Lisää uusi tehtävä"
+          value={value}
+          onChange={(e) => setValue(e.currentTarget.value)}
+        />
       <Button variant="contained" color="primary" type="submit">Lisää</Button>
     </form>
+    </div>
   );
 }
 function App() {
