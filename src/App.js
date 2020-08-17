@@ -2,7 +2,24 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
+
+
+function Todo({todo, index, completeTodo, removeTodo }) {
+  return (
+    <div
+      className="todo"
+      style={{textDecoration: todo.completed ? "line-through": ""}}
+    >
+      {todo.text}
+
+      <div>
+        <button onClick={() => completeTodo(index)}>Tehty</button>
+        <button onClick={() => removeTodo(index)}>Poista</button>
+      </div>
+    </div>
+
+  );
+}
 
 function NewItem({ newTodo }){
   const [value, setValue] = useState("");
@@ -16,28 +33,29 @@ function NewItem({ newTodo }){
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Input</label>
       <input
       type="text"
       className="input"
+      placeholder="Lisää uusi tehtävä"
       value={value}
       onChange={e => setValue(e.target.value)}
       />
+      <button onClick={() => handleSubmit}>Lisää</button>
     </form>
   );
 }
 function App() {
   const [todos, setTodos] = useState([
     {
-      text: "1",
+      text: "Tehtävä 1",
       completed: false
     },
     {
-      text: "2",
+      text: "Tehtävä 2",
       completed: false
     },
     {
-      text: "3",
+      text: "Tehtävä 3",
       completed: false
     }
   ]);
@@ -53,6 +71,11 @@ function App() {
     setTodos(newTodos);
   }
 
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  }
 return (
   <div className="app">
     <div className="todo-list">
@@ -61,6 +84,8 @@ return (
           key={index}
           index={index}
           todo={todo}
+          completeTodo={completeTodo}
+          removeTodo={removeTodo}
         />
       ))}
       <NewItem newTodo={newTodo} />
