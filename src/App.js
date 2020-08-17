@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
+    <div className="todo">
     <div
-      className="todo"
+      className="todo-texts"
       style={{ textDecoration: todo.completed ? "line-through" : "" }}
     >
       {todo.text}
+      </div>
 
       <div>
-        <Button onClick={() => completeTodo(index)}>Tehty</Button>
-        <Button onClick={() => removeTodo(index)}>Poista</Button>
+        <Button variant="contained" color="primary" onClick={() => completeTodo(index)}>Tehty</Button>
+        <Button variant="contained" color="secondary"onClick={() => removeTodo(index)}>Poista</Button>
       </div>
     </div>
-  );
+
+    );
 }
 
 function NewItem({ newTodo }) {
@@ -36,9 +39,9 @@ function NewItem({ newTodo }) {
         className="input"
         placeholder="Lisää uusi tehtävä"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setValue(e.currentTarget.value)}
       />
-      <Button onClick={() => handleSubmit}>Lisää</Button>
+      <Button variant="contained" color="primary" type="submit">Lisää</Button>
     </form>
   );
 }
