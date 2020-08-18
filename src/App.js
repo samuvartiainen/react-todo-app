@@ -56,7 +56,7 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
         <Button
         variant="contained"
       style={{
-        color: "var(--orange)",
+        color: "var(--white)",
         backgroundColor: "var(--black)"
       }}
         onClick={() => returnTodo(index)}>Palauta</Button>
@@ -64,7 +64,7 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
         <Button 
       variant="contained"
       style={{
-        color: "var(--orange)",
+        color: "var(--white)",
         backgroundColor: "var(--black)"
     }}
       onClick={() => completeTodo(index)}>Tehty</Button>
