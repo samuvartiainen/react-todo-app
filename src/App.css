@@ -37,31 +37,41 @@
   }
 }
 
+:root{
+  --orange: #ff9844;
+  --black: #2f2e41;
+  --darkgrey: #9795a2;
+  --lightgrey: #e6e6e6;
+  --white:  #ffffff;
+}
+
 .app {
-  background: #3AAFA9;
+  background: var(--lightgrey);
   padding: 30px;
   height: 100vh;
 }
 
 .todo-list {
-  background: #2B7A78;
+  background: var(--white);
   border-radius: 4px;
   padding: 5px;
   max-width: 400px;
 }
 
 .todo {
-  background: #DEF2F1;
+  background: var(--orange);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  padding: 3px 10px;
+  padding: 3px 3px;
   font-size: 12px;
   margin-bottom: 6px;
-  border-radius: 3px;
+  border-radius: px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+.todo-texts {
+  padding: 3px 9px;
+}
 .form Button {
-  margin-left: 30px;
+  margin-left: 63px;
 }

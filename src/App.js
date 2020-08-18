@@ -1,10 +1,31 @@
 import React, { useState } from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import logo from "./logo.svg";
 import "./App.css";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 
-function Todo({ todo, index, completeTodo, removeTodo }) {
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
+function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
   return (
     <div className="todo">
     <div
@@ -15,8 +36,30 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       </div>
 
       <div>
-        <Button variant="contained" color="primary" onClick={() => completeTodo(index)}>Tehty</Button>
-        <Button variant="contained" color="secondary"onClick={() => removeTodo(index)}>Poista</Button>
+        {todo.completed ?
+        <Button
+        variant="contained"
+      style={{
+        color: "var(--orange)",
+        backgroundColor: "var(--black)"
+      }}
+        onClick={() => returnTodo(index)}>Palauta</Button>
+        :
+        <Button 
+      variant="contained"
+      style={{
+        color: "var(--orange)",
+        backgroundColor: "var(--black)"
+    }}
+      onClick={() => completeTodo(index)}>Tehty</Button>
+    }
+      
+        <Button 
+        variant="contained" 
+        style={{
+          backgroundColor: "var(--darkgrey)"
+      }}
+        onClick={() => removeTodo(index)}>Poista</Button>
       </div>
     </div>
 
@@ -43,12 +86,19 @@ function NewItem({ newTodo }) {
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
         />
-      <Button variant="contained" color="primary" type="submit">Lisää</Button>
+      <Button variant="contained"
+      style={{
+        color: "var(--orange)",
+        backgroundColor: "var(--black)"
+    }}
+      type="submit">Lisää</Button>
     </form>
     </div>
   );
 }
 function App() {
+  const classes = useStyles();
+
   const [todos, setTodos] = useState([
     {
       text: "Tehtävä 1",
@@ -72,8 +122,17 @@ function App() {
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
+    newTodos.push(newTodos.splice(index, 1)[0])
     setTodos(newTodos);
   };
+
+  // back to uncompleted task
+  const returnTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].completed = false;
+    newTodos.unshift(newTodos.splice(index, 1)[0])
+    setTodos(newTodos);
+  }
 
   const removeTodo = (index) => {
     const newTodos = [...todos];
@@ -83,6 +142,7 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
+        <Card className={classes.root}>
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -90,9 +150,11 @@ function App() {
             todo={todo}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
+            returnTodo={returnTodo}
           />
         ))}
         <NewItem newTodo={newTodo} />
+        </Card>
       </div>
     </div>
   );
