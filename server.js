@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/dist/react-todo-app'));
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname+'/dist/react-todo-app/index.html'));
+res.sendFile(path.join(__dirname+'/dist/public/index.html'));
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
