@@ -1,42 +1,58 @@
 import React, { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import logo from "./logo.svg";
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import checkmark from "./check-mark-icon.svg";
+import crossmark from "./cross-mark-icon.svg";
 import "./App.css";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import { findByLabelText } from "@testing-library/react";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
   root: {
-    minWidth: 275,
+    maxWidth: 345,
+    display: 'flex',
+    flexDirection: 'row'
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row'
   },
-  title: {
-    fontSize: 14,
+  content: {
+    display: 'flex'
   },
-  pos: {
-    marginBottom: 12,
+  media: {
+    height: 100,
   },
-});
+}));
 
 function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
   return (
-    <div className="todo">
+    <div className="todo"
+    style={{
+      backgroundColor: todo.completed ? "var(--lightgrey)" : "var(--orange)"
+    }
+    }>
     <div
       className="todo-texts"
-      style={{ textDecoration: todo.completed ? "line-through" : "" }}
+      style={{ 
+        textDecoration: todo.completed ? "line-through" : ""
+       }}
     >
       {todo.text}
       </div>
-
       <div>
+       
+      </div>
+      <div 
+      className="buttons">
         {todo.completed ?
+        
         <Button
         variant="contained"
       style={{
@@ -53,13 +69,11 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
     }}
       onClick={() => completeTodo(index)}>Tehty</Button>
     }
-      
-        <Button 
-        variant="contained" 
-        style={{
-          backgroundColor: "var(--darkgrey)"
-      }}
-        onClick={() => removeTodo(index)}>Poista</Button>
+    <div className="crossmark">
+      <img height='30px'
+      src={crossmark}
+      onClick={() => removeTodo(index)}/>
+      </div>
       </div>
     </div>
 
@@ -96,6 +110,7 @@ function NewItem({ newTodo }) {
     </div>
   );
 }
+
 function App() {
   const classes = useStyles();
 
@@ -126,14 +141,14 @@ function App() {
     setTodos(newTodos);
   };
 
-  // back to uncompleted task
+  // return task to uncompleted
   const returnTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = false;
     newTodos.unshift(newTodos.splice(index, 1)[0])
     setTodos(newTodos);
   }
-
+  // remove item from list
   const removeTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -142,7 +157,7 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
-        <Card className={classes.root}>
+ 
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -154,7 +169,6 @@ function App() {
           />
         ))}
         <NewItem newTodo={newTodo} />
-        </Card>
       </div>
     </div>
   );
