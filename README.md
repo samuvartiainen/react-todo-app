@@ -20,7 +20,7 @@ Sovelluksen responsiivisuus on otettu huomioon mm. määrittelemällä css:än p
 
 ## Ohjeet ajamiseen
 
-Projektin voi kloonata Github:issa omalle koneelle. Mene komentorivillä samaan kansioon ja käynnistä se komennolla
+Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä samaan kansioon ja käynnistä se komennolla
 
 ### `npm start`
 
@@ -28,7 +28,7 @@ Sovellus käynnistyy paikallisena, avaa selaimella http://localhost:3000 mikäli
 
 Sovellusta voi testata myös helposti osoitteessa https://react-todo-app-samu.herokuapp.com/, jonne lisäsin sovelluksen. 
 
-### Kehitysideat
+## Kehitysideat
 
 - Tehdyt taskit menevät alimmaiseksi
 - Mahdollisuus siirtää taskeja eri järjestykseen vetämällä
