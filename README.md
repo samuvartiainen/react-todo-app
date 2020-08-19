@@ -6,7 +6,8 @@ React, Express.js, Node.js ja Material UI -kirjasto
 
 ## Toiminnallisuus
 
-Sovelluksella voi: - Lisätä taskin
+Sovelluksella voi:
+- Lisätä taskin
 - Poistaa taskin
 - Merkata taskin tehdyksi checkbox:illa, jolloin
   - Yliviivataan teksti
@@ -29,8 +30,10 @@ Sovellusta voi testata myös helposti osoitteessa https://react-todo-app-samu.he
 
 ## Kehitysideat
 
-- Tehdyt taskit menevät alimmaiseksi
+- Tehdyt taskit menisivät alimmaiseksi
+- Mahdollisuus editoida jo lisättyä taskia
 - Mahdollisuus siirtää taskeja eri järjestykseen vetämällä
 - Mahdollisuus lisätä prioriteetti taskille
-- Taskien tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle
-  - Tarvitaan myös tunnustenluonti/kirjautuminen
+- Taskien tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle 
+  - Voitaisi käyttää myös eri laitteilta, jos tietokanta on pilvipalveluna (esim. AWS tai MongoDB Atlas)
+  - Tunnustenluonti, kirjautuminen, tunnistautuminen
