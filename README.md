@@ -20,7 +20,9 @@ Sovelluksen responsiivisuus on otettu huomioon mm. määrittelemällä css:än p
 
 ## Ohjeet ajamiseen
 
-Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä samaan kansioon ja käynnistä se komennolla
+Koneella tulee olla ladattuna ja asennettuna Node.js. https://nodejs.org/en/download/
+
+Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä projektin kansioon ja käynnistä se komennolla
 
 ### `npm start`
 
