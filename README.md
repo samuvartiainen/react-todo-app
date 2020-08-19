@@ -1,7 +1,5 @@
 # react-todo-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Käytetyt teknologiat
 
 React, Node.js, Express.js ja Material UI -kirjasto
@@ -9,10 +7,13 @@ React, Node.js, Express.js ja Material UI -kirjasto
 ## Toiminnollisuus
 
 Sovelluksella voi: 
-- Item 1
-- Item 2
-  - Sub item 1
-  - Sub item 2
+- Lisätä to-do-listaan tehtävän
+- Poistaa tehtävän
+- Merkata tehtävän tehdyksi checkbox:illa, jolloin
+  - Yliviivataan teksti
+  - Tehtävän taustaväri vaihtuu vaaleanharmaaksi
+- 
+
 
 ## Available Scripts
 
