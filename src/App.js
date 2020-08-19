@@ -120,8 +120,9 @@ function NewItem({ newTodo }) {
   };
 
   return (
-    <div className="form">
+    
    <form onSubmit={handleSubmit}>
+     <div className="form">
         <TextField
           type="text"
           fullWidth
@@ -139,8 +140,8 @@ function NewItem({ newTodo }) {
       src={addicon}
       onClick={handleSubmit}
       />
+      </div>
       </form>
-    </div>
   );
 }
 
@@ -170,7 +171,6 @@ function App() {
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
-    { /* newTodos.push(newTodos.splice(index, 1)[0]) */ }
     setTodos(newTodos);
   };
 
@@ -178,7 +178,6 @@ function App() {
   const returnTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = false;
-  { /* newTodos.unshift(newTodos.splice(index, 1)[0]) */ }
     setTodos(newTodos);
   }
   // remove item from list
