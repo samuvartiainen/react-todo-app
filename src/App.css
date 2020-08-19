@@ -78,14 +78,13 @@
     background-color: var(--white);
     color: var(--white);
     text-align: right;
- 
-      align-items: right;
-     width: 100%;
+    align-items: right;
 }
 .form {
   display: flex;
   align-items: center;
-  position: 'fixed',
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .buttons{
   display: flex;
