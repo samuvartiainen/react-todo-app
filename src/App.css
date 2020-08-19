@@ -91,3 +91,9 @@
   justify-content: center;
   padding: 3px 2px;
 }
+
+#addBtn {
+  background-color: var(--white);
+  color: var(--white);
+  
+}

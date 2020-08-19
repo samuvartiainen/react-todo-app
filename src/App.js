@@ -13,11 +13,19 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { findByLabelText } from "@testing-library/react";
-
-import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Checkbox } from '@material-ui/core';
+
+const CheckboxColored = withStyles({
+  root: {
+    color: "var(--white)",
+    '&$checked': {
+      color: "var(--black)",
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles((theme) =>({
   root: {
@@ -39,7 +47,24 @@ const useStyles = makeStyles((theme) =>({
 
 function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
 
+  const [state, setState] = React.useState({
+    
+  });
+
+  const handleChange = (event, index) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+
+    if(event.target.checked){
+      completeTodo(index)
+    }
+    else{
+      returnTodo(index)
+    }
+  };
+
   return (
+
+    
     <div className="todo"
     style={{
       backgroundColor: todo.completed ? "var(--lightgrey)" : "var(--orange)"
@@ -51,6 +76,14 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
         textDecoration: todo.completed ? "line-through" : ""
        }}
     >
+       <FormControlLabel
+        control={
+          <CheckboxColored
+          checked={todo.completed}
+            onChange={(e) => handleChange(e, index)}
+            // onClick={() => {todo.completed ? returnTodo(index) : completeTodo(index)}}
+          />
+        }></FormControlLabel>
       {todo.text}
       </div>
       <div>
@@ -61,13 +94,7 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
       className="buttons">
        
         
-        <FormControlLabel
-        control={
-          <Checkbox
-          
-            onClick={() => {todo.completed ? returnTodo(index) : completeTodo(index)}}
-          />
-        }></FormControlLabel>
+       
      
        
     
@@ -131,7 +158,7 @@ function App() {
   ]);
 
   const newTodo = (text) => {
-    const newTodos = [...todos, { text }];
+    const newTodos = [...todos, { text, completed: false }];
     setTodos(newTodos);
   };
 
