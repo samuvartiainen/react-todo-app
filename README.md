@@ -22,11 +22,13 @@ Sovelluksen responsiivisuus on otettu huomioon mm. to-do-listan leveydessä mä�
 
 Koneella tulee olla ladattuna ja asennettuna Node.js. https://nodejs.org/en/download/
 
-Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä projektin kansioon ja aja ensiksi komento
+Projektin voi kloonata Github:ista omalle koneelle. 
+
+Mene komentorivillä projektin kansioon (cd react-todo-app) ja aja ensiksi komento
 
 ### `npm install` 
 
-Tämä asentaa package.json:ista projektin npm-paketit.
+Tämä komento asentaa package.json:ista projektin tarvitsemat npm-paketit, johon menee hetki.
 
 Käynnistä sitten sovellus komennolla
 
@@ -34,7 +36,9 @@ Käynnistä sitten sovellus komennolla
 
 Sovellus käynnistyy paikallisena, avaa selaimella http://localhost:3000 mikäli se ei automaattisesti käynnisty. 
 
-Sovellusta voi testata myös helposti osoitteessa https://react-todo-app-samu.herokuapp.com/, jonne lisäsin sovelluksen. 
+### Vaihtoehtoisesti
+
+Sovellusta pääsee kokeilemaan helposti osoitteessa https://react-todo-app-samu.herokuapp.com/, jonne lisäsin sovelluksen. 
 
 ## Kehitysideat
 
