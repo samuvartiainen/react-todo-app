@@ -1,122 +1,79 @@
 import React, { useState } from "react";
-import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme, withStyles } from "@material-ui/core/styles";
 import checkmark from "./check-mark-icon.svg";
 import crossmark from "./cross-mark-icon.svg";
 import "./App.css";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 import { findByLabelText } from "@testing-library/react";
 
-import { green } from '@material-ui/core/colors';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Checkbox } from '@material-ui/core';
+import { green } from "@material-ui/core/colors";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { Checkbox } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    display: 'flex',
-    flexDirection: 'row'
+    display: "flex",
+    flexDirection: "row",
   },
   buttons: {
-    display: 'flex',
-    flexDirection: 'row'
+    display: "flex",
+    flexDirection: "row",
   },
   content: {
-    display: 'flex'
+    display: "flex",
   },
   media: {
     height: 100,
   },
 }));
 
-const GreenCheckbox = withStyles({
-  root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
-  },
-  checked: {},
-})((props) => <Checkbox color="default" {...props} />);
-
-
 function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
-
-  const [state, setState] = React.useState({
-    checkedA: false,
-    checkedB: true,
-    checkedF: false,
-    checkedG: true,
-  });
-
-  const handleChange = (event, index) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
-
   return (
-    <div className="todo"
-    style={{
-      backgroundColor: todo.completed ? "var(--lightgrey)" : "var(--orange)"
-    }
-    }>
     <div
-      className="todo-texts"
-      style={{ 
-        textDecoration: todo.completed ? "line-through" : ""
-       }}
+      className="todo"
+      style={{
+        backgroundColor: todo.completed ? "var(--lightgrey)" : "var(--orange)",
+      }}
     >
-      {todo.text}
+      <div
+        className="todo-texts"
+        style={{
+          textDecoration: todo.completed ? "line-through" : "",
+        }}
+      >
+        {todo.text}
       </div>
-      <div>
-      
-        
-      </div>
-      <div 
-      className="buttons">
-        {todo.completed ?
-        
+      <div></div>
+      <div className="buttons">
         <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedA}
-            onChange={handleChange}
-            name="checkedA"
-            onClick={() => returnTodo(index)}
+          control={
+            <Checkbox
+              onClick={() => {
+                todo.completed ? returnTodo(index) : completeTodo(index);
+              }}
+            />
+          }
+        ></FormControlLabel>
+
+        <div className="crossmark">
+          <img
+            height="30px"
+            src={crossmark}
+            onClick={() => removeTodo(index)}
           />
-        }
-        label="Palauta"
-      />
-        :
-        <FormControlLabel
-        control={
-          <Checkbox
-            checked={state.checkedA}
-            onChange={handleChange}
-            name="checkedA"
-            onClick={() => completeTodo(index)}
-          />
-        }
-        label="Tehty"
-      />
-       
-    }
-    <div className="crossmark">
-      <img height='30px'
-      src={crossmark}
-      onClick={() => removeTodo(index)}/>
-      </div>
+        </div>
       </div>
     </div>
-
-    );
+  );
 }
 
 function NewItem({ newTodo }) {
@@ -131,7 +88,7 @@ function NewItem({ newTodo }) {
 
   return (
     <div className="form">
-    <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <TextField
           type="text"
           className="input"
@@ -139,13 +96,17 @@ function NewItem({ newTodo }) {
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
         />
-      <Button variant="contained"
-      style={{
-        color: "var(--orange)",
-        backgroundColor: "var(--black)"
-    }}
-      type="submit">Lisää</Button>
-    </form>
+        <Button
+          variant="contained"
+          style={{
+            color: "var(--orange)",
+            backgroundColor: "var(--black)",
+          }}
+          type="submit"
+        >
+          Lisää
+        </Button>
+      </form>
     </div>
   );
 }
@@ -176,7 +137,7 @@ function App() {
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
-    newTodos.push(newTodos.splice(index, 1)[0])
+    newTodos.push(newTodos.splice(index, 1)[0]);
     setTodos(newTodos);
   };
 
@@ -184,9 +145,9 @@ function App() {
   const returnTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = false;
-    newTodos.unshift(newTodos.splice(index, 1)[0])
+    newTodos.unshift(newTodos.splice(index, 1)[0]);
     setTodos(newTodos);
-  }
+  };
   // remove item from list
   const removeTodo = (index) => {
     const newTodos = [...todos];
@@ -196,7 +157,6 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
- 
         {todos.map((todo, index) => (
           <Todo
             key={index}
