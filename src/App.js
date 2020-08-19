@@ -130,6 +130,9 @@ function NewItem({ newTodo }) {
           placeholder="Lisää uusi tehtävä"
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
+          inputProps={{
+            style: {fontSize: 25} 
+          }}
         />
       <img className="addBtn"
       height='70vh'
