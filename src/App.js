@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
 import checkmark from "./check-mark-icon.svg";
 import crossmark from "./cross-mark-icon.svg";
 import "./App.css";
@@ -12,6 +12,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { findByLabelText } from "@testing-library/react";
+
+import { green } from '@material-ui/core/colors';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Checkbox } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) =>({
   root: {
@@ -31,7 +36,31 @@ const useStyles = makeStyles((theme) =>({
   },
 }));
 
+const GreenCheckbox = withStyles({
+  root: {
+    color: green[400],
+    '&$checked': {
+      color: green[600],
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+
 function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
+
+  const [state, setState] = React.useState({
+    checkedA: false,
+    checkedB: true,
+    checkedF: false,
+    checkedG: true,
+  });
+
+  const handleChange = (event, index) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+
   return (
     <div className="todo"
     style={{
@@ -47,27 +76,37 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
       {todo.text}
       </div>
       <div>
-       
+      
+        
       </div>
       <div 
       className="buttons">
         {todo.completed ?
         
-        <Button
-        variant="contained"
-      style={{
-        color: "var(--white)",
-        backgroundColor: "var(--black)"
-      }}
-        onClick={() => returnTodo(index)}>Palauta</Button>
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedA}
+            onChange={handleChange}
+            name="checkedA"
+            onClick={() => returnTodo(index)}
+          />
+        }
+        label="Palauta"
+      />
         :
-        <Button 
-      variant="contained"
-      style={{
-        color: "var(--white)",
-        backgroundColor: "var(--black)"
-    }}
-      onClick={() => completeTodo(index)}>Tehty</Button>
+        <FormControlLabel
+        control={
+          <Checkbox
+            checked={state.checkedA}
+            onChange={handleChange}
+            name="checkedA"
+            onClick={() => completeTodo(index)}
+          />
+        }
+        label="Tehty"
+      />
+       
     }
     <div className="crossmark">
       <img height='30px'
