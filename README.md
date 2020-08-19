@@ -2,7 +2,7 @@
 
 ## Käytetyt teknologiat
 
-React, Express.js, Node.js ja Material UI -kirjasto
+React, Node.js, Express.js ja Material UI -kirjasto
 
 ## Toiminnallisuus
 
