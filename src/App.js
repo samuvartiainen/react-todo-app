@@ -29,7 +29,7 @@ function App() {
     newTodos[index].completed = true;
     setTodos(newTodos);
   };
-  
+
   // return task to uncompleted
   const returnTodo = (index) => {
     const newTodos = [...todos];
