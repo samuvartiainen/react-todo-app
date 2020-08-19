@@ -63,7 +63,8 @@
   background: var(--orange);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   padding: 3px 3px;
-  font-size: 12px;
+  font-size: 2.5vh;
+  height: 8vh;
   margin-bottom: 6px;
   border-radius: px;
   display: flex;
