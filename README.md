@@ -7,12 +7,12 @@ React, Node.js, Express.js ja Material UI -kirjasto
 ## Toiminnollisuus
 
 Sovelluksella voi: 
-- Lisätä to-do-listaan tehtävän
+- Lisätä tehtävän 
 - Poistaa tehtävän
 - Merkata tehtävän tehdyksi checkbox:illa, jolloin
   - Yliviivataan teksti
   - Tehtävän taustaväri vaihtuu vaaleanharmaaksi
-- 
+- Merkata tehtävän takaisin checkbox:illa
 
 
 ## Available Scripts
