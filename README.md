@@ -32,6 +32,7 @@ Sovellusta voi testata myös helposti osoitteessa https://react-todo-app-samu.he
 
 - Tehdyt taskit menisivät alimmaiseksi
 - Mahdollisuus editoida jo lisättyä taskia
+  - Klikkaamalla aukeaa laajeneva osa, jossa lisää tietoa kuten tarkempi kuvaus tai deadline 
 - Mahdollisuus siirtää taskeja eri järjestykseen vetämällä
 - Mahdollisuus lisätä prioriteetti taskille
 - Taskien tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle 
