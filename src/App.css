@@ -62,7 +62,7 @@
 .todo {
   background: var(--orange);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  padding: 6px 6px;
+  padding: 10px 6px;
   font-size: 16px;
   margin-bottom: 6px;
   border-radius: px;
