@@ -121,7 +121,7 @@ function NewItem({ newTodo }) {
 
   return (
     <div className="form">
-   
+   <form onSubmit={handleSubmit}>
         <TextField
           type="text"
           fullWidth
@@ -130,14 +130,13 @@ function NewItem({ newTodo }) {
           placeholder="Lisää uusi tehtävä"
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
-          onSubmit={handleSubmit}
-          
         />
       <img className="addBtn"
       height='70vh'
       src={addicon}
       onClick={handleSubmit}
       />
+      </form>
     </div>
   );
 }
