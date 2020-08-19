@@ -27,23 +27,6 @@ const CheckboxColored = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const useStyles = makeStyles((theme) =>({
-  root: {
-    maxWidth: 345,
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  buttons: {
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  content: {
-    display: 'flex'
-  },
-  media: {
-    height: 100,
-  },
-}));
 
 function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
 
@@ -146,8 +129,6 @@ function NewItem({ newTodo }) {
 }
 
 function App() {
-  const classes = useStyles();
-
   const [todos, setTodos] = useState([
     {
       text: "Tehtävä 1",

@@ -43,11 +43,11 @@
   --darkgrey: #9795a2;
   --lightgrey: #e6e6e6;
   --white:  #ffffff;
+  background: var(--lightgrey); 
 }
 
 .app {
   background: var(--lightgrey);
-  height: 100vh;
 }
 
 .todo-list {
@@ -55,7 +55,7 @@
   border-radius: 4px;
   padding: 5px;
   width: 100vw;
-  height: 100vh;
+
   max-width: 1200px;
   margin:auto;
 }
