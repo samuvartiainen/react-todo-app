@@ -49,4 +49,4 @@ Sovellusta pääsee kokeilemaan helposti osoitteessa https://react-todo-app-samu
 - Mahdollisuus lisätä prioriteetti taskille
 - Taskien tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle 
   - Voitaisi käyttää myös eri laitteilta, jos tietokanta on pilvipalveluna (esim. AWS tai MongoDB Atlas)
-  - Tunnustenluonti, kirjautuminen, tunnistautuminen
+  - Rekisteröityminen, kirjautuminen, tunnistautuminen
