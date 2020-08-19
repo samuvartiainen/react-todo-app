@@ -6,7 +6,7 @@ React, Express.js, Node.js ja Material UI -kirjasto
 
 ## Toiminnallisuus
 
-Sovelluksella voi: 
+Sovelluksella voi:<br>
 - Lisätä taskin
 - Poistaa taskin
 - Merkata taskin tehdyksi checkbox:illa, jolloin
