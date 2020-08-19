@@ -99,7 +99,7 @@ function Todo({ todo, index, completeTodo, removeTodo, returnTodo }) {
        
     
     <div className="crossmark">
-      <img height='30px'
+      <img height='25vh'
       src={crossmark}
       onClick={() => removeTodo(index)}/>
       </div>
@@ -121,20 +121,23 @@ function NewItem({ newTodo }) {
 
   return (
     <div className="form">
-    <form onSubmit={handleSubmit}>
+   
         <TextField
           type="text"
+          fullWidth
+          height="125vh"
           className="input"
           placeholder="Lisää uusi tehtävä"
           value={value}
           onChange={(e) => setValue(e.currentTarget.value)}
+          onSubmit={handleSubmit}
+          
         />
       <img className="addBtn"
-      height='30px'
+      height='70vh'
       src={addicon}
       onClick={handleSubmit}
       />
-    </form>
     </div>
   );
 }

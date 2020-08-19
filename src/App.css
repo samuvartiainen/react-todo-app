@@ -55,7 +55,8 @@
   background: var(--white);
   border-radius: 4px;
   padding: 5px;
-  max-width: 400px;
+  width: 90vw;
+  height: 100vh;
 }
 
 .todo {
@@ -73,12 +74,19 @@
   padding: 3px 9px;
   font-family: sans-serif;
 }
-.form Button {
+.form img {
   margin-left: 12px;
+    background-color: var(--white);
+    color: var(--white);
+    text-align: right;
+ 
+      align-items: right;
+     
 }
 .form {
   display: flex;
   align-items: center;
+  position: 'fixed',
 }
 .buttons{
   display: flex;
@@ -92,8 +100,3 @@
   padding: 3px 2px;
 }
 
-#addBtn {
-  background-color: var(--white);
-  color: var(--white);
-  
-}
