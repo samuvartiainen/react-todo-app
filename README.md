@@ -7,14 +7,14 @@ React, Node.js, Express.js ja Material UI -kirjasto
 ## Toiminnallisuus
 
 Sovelluksella voi:
-- Lisätä taskin
-- Poistaa taskin
-- Merkata taskin tehdyksi checkbox:illa, jolloin
+- Lisätä tehtävän
+- Poistaa tehtävän
+- Merkata tehtävän tehdyksi checkbox:illa, jolloin
   - Yliviivataan teksti
-  - Taskin taustaväri vaihtuu vaaleanharmaaksi
-- Merkata taskin uudestaan tekemättömäksi checkbox:illa, jolloin
+  - Tehtävän taustaväri vaihtuu vaaleanharmaaksi
+- Merkata tehtävän uudestaan tekemättömäksi checkbox:illa, jolloin
   - Teksti palautuu normaaliksi
-  - Taskin taustaväri vaihtuu takaisin oranssiksi
+  - Tehtävän taustaväri vaihtuu takaisin oranssiksi
 
 Sovelluksen responsiivisuus on otettu huomioon mm. to-do-listan leveydessä määrittelemällä css:än puolella leveyttä vw:n ja max width:in avulla.
 
@@ -42,11 +42,11 @@ Sovellusta pääsee kokeilemaan helposti osoitteessa https://react-todo-app-samu
 
 ## Kehitysideat
 
-- Tehdyt taskit menisivät alimmaiseksi
-- Mahdollisuus editoida jo lisättyä taskia
+- Tehdyt tehtävät voisivat mennä alimmaiseksi listassa
+- Mahdollisuus editoida listalla olevia tehtäviä
   - Klikkaamalla aukeaa laajeneva osa, jossa lisää tietoa kuten tarkempi kuvaus tai deadline 
-- Mahdollisuus siirtää taskeja eri järjestykseen vetämällä
-- Mahdollisuus lisätä prioriteetti taskille
-- Taskien tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle 
-  - Voitaisi käyttää myös eri laitteilta, jos tietokanta on pilvipalveluna (esim. AWS tai MongoDB Atlas)
-  - Rekisteröityminen, kirjautuminen, tunnistautuminen
+- Mahdollisuus lisätä prioriteetti tehtävälle
+- Mahdollisuus siirtää tehtäviä eri järjestykseen vetämällä
+- Tallentaminen tietokantaan, jotta ne säilyvät käyttäjälle 
+  - Voitaisi käyttää tällöin eri laitteilta, jos tietokanta on pilvipalveluna (esim. AWS tai MongoDB Atlas)
+  - Tarvitaan myös käyttäjän rekisteröityminen, kirjautuminen, tunnistautuminen yms.
