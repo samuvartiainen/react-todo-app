@@ -26,7 +26,7 @@ Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä projekt
 
 ### `npm install` 
 
-, jotta package.json:ista asentuu oikeat npm-paketit.
+Tämä asentaa package.json:ista projektin npm-paketit.
 
 Käynnistä sitten sovellus komennolla
 
