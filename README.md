@@ -16,13 +16,19 @@ Sovelluksella voi:
   - Teksti palautuu normaaliksi
   - Taskin taustaväri vaihtuu takaisin oranssiksi
 
-Sovelluksen responsiivisuus on otettu huomioon mm. määrittelemällä css:än puolella leveyttä vw:n ja max width:in avulla.
+Sovelluksen responsiivisuus on otettu huomioon mm. to-do-listan leveydessä määrittelemällä css:än puolella leveyttä vw:n ja max width:in avulla.
 
 ## Ohjeet ajamiseen
 
 Koneella tulee olla ladattuna ja asennettuna Node.js. https://nodejs.org/en/download/
 
-Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä projektin kansioon ja käynnistä se komennolla
+Projektin voi kloonata Github:ista omalle koneelle. Mene komentorivillä projektin kansioon ja aja ensiksi komento
+
+### `npm install` 
+
+, jotta package.json:ista asentuu oikeat npm-paketit.
+
+Käynnistä sitten sovellus komennolla
 
 ### `npm start`
 
