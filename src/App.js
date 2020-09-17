@@ -18,7 +18,15 @@ function App() {
       completed: false,
     },
   ]);
-
+  todos.sort((a, b) => {
+    if(a.completed == true && b.completed == false){
+      return 1;
+    }
+    if(a.completed == false && b.completed == true){
+      return -1;
+    }
+    return 0;
+  });
   const newTodo = (text) => {
     const newTodos = [...todos, { text, completed: false }];
     setTodos(newTodos);
@@ -27,6 +35,7 @@ function App() {
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = true;
+    array_move(newTodos, index, newTodos.length-1);
     setTodos(newTodos);
   };
 
@@ -34,6 +43,7 @@ function App() {
   const returnTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = false;
+    array_move(newTodos, index, 0);
     setTodos(newTodos);
   };
   // remove item from list
@@ -42,6 +52,16 @@ function App() {
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
+  function array_move(arr, old_index, new_index) {
+    if (new_index >= arr.length) {
+        var k = new_index - arr.length + 1;
+        while (k--) {
+            arr.push(undefined);
+        }
+    }
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr; // for testing
+};
   return (
     <div className="app">
       <div className="todo-list">
