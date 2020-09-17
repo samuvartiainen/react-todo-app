@@ -10,12 +10,13 @@ Sovelluksella voi:
 - Lisätä tehtävän
 - Poistaa tehtävän
 - Merkata tehtävän tehdyksi checkbox:illa, jolloin
+  - Tehtävä siirtyy alimmaksi listalla
   - Yliviivataan teksti
   - Tehtävän taustaväri vaihtuu vaaleanharmaaksi
 - Merkata tehtävän uudestaan tekemättömäksi checkbox:illa, jolloin
   - Teksti palautuu normaaliksi
   - Tehtävän taustaväri vaihtuu takaisin oranssiksi
-
+- Tehtävät järjestyvät tehtyjen ja tekemättömien perusteella
 Sovelluksen responsiivisuus on otettu huomioon mm. to-do-listan leveydessä määrittelemällä css:än puolella leveyttä vw:n ja max width:in avulla.
 
 ## Ohjeet ajamiseen
@@ -42,7 +43,6 @@ Sovellusta pääsee kokeilemaan helposti osoitteessa https://react-todo-app-samu
 
 ## Kehitysideat
 
-- Tehdyt tehtävät voisivat mennä alimmaiseksi listassa
 - Mahdollisuus editoida listalla olevia tehtäviä
   - Klikkaamalla aukeaa laajeneva osa, jossa lisää tietoa kuten tarkempi kuvaus tai deadline 
 - Mahdollisuus lisätä prioriteetti tehtävälle
